@@ -60,6 +60,8 @@ var Dropdown = {
       var overlayProps = overlayNode && getPropsData(overlayNode);
 
       var _ref = overlayProps || {},
+          _ref$mode = _ref.mode,
+          mode = _ref$mode === undefined ? 'inline' : _ref$mode,
           _ref$selectable = _ref.selectable,
           selectable = _ref$selectable === undefined ? false : _ref$selectable,
           _ref$focusable = _ref.focusable,
@@ -67,15 +69,13 @@ var Dropdown = {
 
       var expandIcon = h(
         'span',
-        { 'class': prefixCls + '-menu-submenu-arrow' },
-        [h(Icon, {
-          attrs: { type: 'right' },
-          'class': prefixCls + '-menu-submenu-arrow-icon' })]
+        { 'class': prefixCls + '-menu-submenu-arrow' }
       );
 
       var fixedModeOverlay = overlayNode && overlayNode.componentOptions ? cloneElement(overlayNode, {
         props: {
-          mode: 'vertical',
+          // mode: 'vertical',
+          mode: mode,
           selectable: selectable,
           focusable: focusable,
           expandIcon: expandIcon
